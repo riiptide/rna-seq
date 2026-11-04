@@ -52,7 +52,7 @@ cell QC, not silently treated as cells here.
 
 Generated matrices, reads, references, and environments are local and ignored by
 Git. Small source files, provenance, locks, and measured run records are committed.
-Commits remain local pending your review; the GitHub remote is configured.
+Small, descriptive commits record the Stage 1 implementation and run evidence.
 
 ## Interpretation and next-stage decisions
 
