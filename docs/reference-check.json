@@ -1,0 +1,24 @@
+{
+  "transcripts": 227665,
+  "unique_gene_ids": 39546,
+  "mitochondrial_gene_symbols": [
+    "MT-ATP6",
+    "MT-ATP8",
+    "MT-CO1",
+    "MT-CO2",
+    "MT-CO3",
+    "MT-CYB",
+    "MT-ND1",
+    "MT-ND2",
+    "MT-ND3",
+    "MT-ND4",
+    "MT-ND4L",
+    "MT-ND5",
+    "MT-ND6"
+  ],
+  "each_gene_id_has_consistent_symbol_field": true,
+  "gene_ids_with_empty_symbol": 13841,
+  "gene_ids_with_nonempty_symbol": 25705,
+  "gene_ids_with_duplicated_nonempty_symbol": 73,
+  "kb_symbol_fallback_gene_ids": 13914
+}

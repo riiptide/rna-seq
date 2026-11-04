@@ -1,0 +1,75 @@
+{
+  "dataset": {
+    "name": "1k PBMCs from a Healthy Donor (v3 chemistry)",
+    "provider": "10x Genomics",
+    "landing_page": "https://www.10xgenomics.com/datasets/1-k-pbm-cs-from-a-healthy-donor-v-3-chemistry-3-standard-3-0-0",
+    "download_url": "https://cf.10xgenomics.com/samples/cell-exp/3.0.0/pbmc_1k_v3/pbmc_1k_v3_fastqs.tar",
+    "license": "CC BY 4.0",
+    "download_date_local": "2026-11-03",
+    "archive_bytes": 5549312000,
+    "observed_archive_sha256": "873f6511a7cb732c0a709d2fb9201ca4f1230a70f3a04e46c0198a9e4be896fd",
+    "upstream_checksum_verified": false
+  },
+  "reference": {
+    "provider": "Pachter lab",
+    "release": "v1",
+    "assembly": "GRCh38",
+    "annotation": "Ensembl 108",
+    "workflow": "standard",
+    "download_url": "https://github.com/pachterlab/kallisto-transcriptome-indices/releases/download/v1/human_index_standard.tar.xz",
+    "archive_bytes": 145139492,
+    "observed_archive_sha256": "a4c2c007efaa7df4c5d9fb7c798d5ffdd0fc04279de325a4744fb4e8ccec68bd",
+    "index_bytes": 411526356,
+    "index_format_version": 13,
+    "index_kmer_length": 31,
+    "upstream_checksum_verified": false
+  },
+  "test_derivation": {
+    "tool": "seqtk 1.4-r122",
+    "seed": 42,
+    "pairs_per_lane": 500000,
+    "total_pairs": 1000000,
+    "paired_ids_verified": true,
+    "purpose": "execution smoke test; not biological validation"
+  },
+  "inputs": [
+    {
+      "kind": "raw_fastq",
+      "sample": "pbmc_1k_v3",
+      "lane": "L001",
+      "read": "fastq_1",
+      "path": "data/raw/pbmc_1k_v3_fastqs/pbmc_1k_v3_S1_L001_R1_001.fastq.gz",
+      "bytes": 753851810
+    },
+    {
+      "kind": "raw_fastq",
+      "sample": "pbmc_1k_v3",
+      "lane": "L001",
+      "read": "fastq_2",
+      "path": "data/raw/pbmc_1k_v3_fastqs/pbmc_1k_v3_S1_L001_R2_001.fastq.gz",
+      "bytes": 1772725195
+    },
+    {
+      "kind": "raw_fastq",
+      "sample": "pbmc_1k_v3",
+      "lane": "L002",
+      "read": "fastq_1",
+      "path": "data/raw/pbmc_1k_v3_fastqs/pbmc_1k_v3_S1_L002_R1_001.fastq.gz",
+      "bytes": 748651163
+    },
+    {
+      "kind": "raw_fastq",
+      "sample": "pbmc_1k_v3",
+      "lane": "L002",
+      "read": "fastq_2",
+      "path": "data/raw/pbmc_1k_v3_fastqs/pbmc_1k_v3_S1_L002_R2_001.fastq.gz",
+      "bytes": 1763628623
+    }
+  ],
+  "reuse": {
+    "date_local": "2026-11-04",
+    "method": "Copied previously downloaded archives and extracted inputs from an existing local PBMC project; verified SHA-256 against its recorded manifest. No fresh network download required.",
+    "source_commit": "6a0ef72",
+    "upstream_checksum_verified": false
+  }
+}
