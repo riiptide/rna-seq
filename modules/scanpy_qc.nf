@@ -17,6 +17,6 @@ process SCANPY_QC {
     path 'figures/*', emit: figures
     script:
     """
-    python scanpy_qc.py --input '${counts}' ${options}
+    python scanpy_qc.py --input '${counts}' --sample-id '${meta.id}' ${options}
     """
 }

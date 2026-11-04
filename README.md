@@ -2,7 +2,7 @@
 
 > **Quick start** — Turn public 10x PBMC reads into gene counts and annotated cell types with FastQC, kb-python, Scanpy, and CellTypist.<br>
 > **1,107 cells passing QC · 13 Leiden clusters** in the completed analysis.<br>
-> Follow the [Stage 2 setup](docs/stage-2.md), then run `work/envs/stage2/bin/jupyter notebook notebooks/01_explore.ipynb` and select **Restart Kernel and Run All Cells**.
+> After [one-time setup](docs/stage-3.md#prepare-once), run `nextflow run main.nf -profile test,docker`.
 
 ![Illustrative UMAP showing PBMC cell types](docs/images/pbmc-umap-illustration.png)
 *Illustrative cell-type overview; the image uses placeholder counts. See the [executed notebook](notebooks/01_explore.ipynb) for the measured UMAP and labels.*
@@ -13,25 +13,37 @@ cells → an interactive dashboard, with a laptop-sized memory budget.
 
 ## Current stage
 
-**Stage 2 complete:** the [interactive Scanpy/CellTypist notebook](notebooks/01_explore.ipynb)
-runs top to bottom and produces `results/annotated.h5ad` with 1,107 QC-passing cells
-and 13 Leiden clusters. Read the [cluster review and validation](docs/stage-2-results.md)
-and [Jupyter launch instructions](docs/stage-2.md).
-
-Stage 1 full/test counts and QC remain documented in the
-[Stage 1 run record](docs/stage-1-results.md).
-
-The repository is being built in reviewable stages. Stop here for review before
-Nextflow modules and Docker. The automated workflow, containers, dashboard, pytest suite, and CI
-are future stages.
-
-The eventual entry point is:
+**Stage 3:** the containerized Nextflow pipeline runs FASTQs through FastQC,
+kb count, Scanpy QC/clustering, CellTypist annotation and MultiQC.
+See the [setup and design walkthrough](docs/stage-3.md). The
+[Stage 2 notebook](notebooks/01_explore.ipynb) remains the exploratory record;
+the Python scripts in `bin/` are the analysis source of truth.
 
 ```bash
 nextflow run main.nf -profile test,docker
+nextflow run main.nf -profile test,docker -resume
+nextflow run main.nf -profile docker
 ```
 
-That command is a Stage 3 deliverable, not a working quick start today.
+The test profile uses 500,000 read pairs per lane, seed 42, and writes to
+`results/test-pipeline/`. The full run writes `results/analysis/annotated.h5ad`,
+`results/analysis/markers.csv`, figures and MultiQC, with a convenience copy at
+`results/annotated.h5ad`. Downloads, image builds and fixture creation are one-time
+setup steps. Preserve `.nextflow/cache` and `work/nextflow-tasks` for resume.
+
+### How the pipeline is organized
+
+`main.nf` groups lanes by sample and connects one process per step in `modules/`.
+`nextflow.config` holds parameters, CPU/memory allocations, pinned image names
+and test/Docker/Slurm profiles. `bin/` scripts accept explicit CLI parameters;
+`containers/` builds the shared analysis image and repaired kb image. Each process
+runs in a separate container. Outputs are published into `counts/`, `analysis/`,
+`figures/`, `fastqc/`, `multiqc/` and `pipeline_info/` under the output directory.
+
+Scrublet flags potential doublets by default; removal is a separate opt-in.
+The existing Ensembl 108 reference is checksum-verified, and a missing reference
+is downloaded into a persistent cache. The Slurm/Apptainer profile is a scaffold
+and has not been tested. Dashboard, pytest and CI remain future stages.
 
 ## Stage 1
 
@@ -68,19 +80,19 @@ and gene columns; selecting real cells and assigning cell types comes in Stage 2
 ## Layout
 
 ```text
-main.nf                 Stage 3 entry-point placeholder
+main.nf                 Strict-syntax Nextflow workflow
 nextflow.config         Central processing parameters
 samplesheet.csv         One row per sequencing lane, grouped by sample
 environment.yml         Pinned Stage 1 Python/QC environment
 environment-native.yml  Mac HDF5 dependency and bustools
 environment-stage2.yml  Pinned interactive analysis environment
 notebooks/              Executed Scanpy and CellTypist walkthrough
-modules/                Future Nextflow modules
-containers/             Future per-process Dockerfiles
-bin/                    Input/output validators; future analysis scripts
+modules/                One process per pipeline step
+containers/             Pinned image builds and dependency locks
+bin/                    Parameterized analysis and validation scripts
 dashboard/              Future Streamlit application
 addons/                 Reserved for the later add-on
-tests/                  Future pytest suite
+tests/                  Seeded fixture builder and test samplesheet
 docs/                   Walkthrough, provenance, and run evidence
 data/                   Ignored raw reads and derived test fixture
 references/             Ignored prebuilt index and gene mapping
@@ -108,7 +120,6 @@ human GRCh38 / Ensembl 108, standard transcriptome index. See
 - Some reference gene symbols are missing or shared by multiple IDs. The notebook
   records and aggregates shared symbols explicitly; original Ensembl IDs are preserved.
 - Barcode filtering and cell QC are distinct decisions. Retain unfiltered counts
-  so the notebook can examine the barcode-rank distribution before cell selection.
-- Under five minutes is a future measured target for a fresh test execution with
-  inputs, references, models, and images already cached. It is not a claim about
-  download time or a Nextflow `-resume` cache hit.
+  so the notebook and pipeline can inspect barcode ranks before cell selection.
+- Test runtime excludes downloads, image builds and fixture preparation; a fresh
+  execution and a `-resume` cache hit are measured separately in the Stage 3 record.

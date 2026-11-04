@@ -1,11 +1,11 @@
-FROM mambaorg/micromamba:2.0.5
+FROM mambaorg/micromamba:2.0.5@sha256:8d0d4cad074afe3ac93b58dce88bd2659153d3fa6de3a6968f501710e8d3c832
 USER root
 RUN apt-get update && apt-get install -y --no-install-recommends g++ procps && rm -rf /var/lib/apt/lists/*
 USER $MAMBA_USER
 RUN micromamba install -y -n base -c conda-forge python=3.11.11 pip=25.0.1 ncurses=6.5 && micromamba clean --all --yes
 ARG MAMBA_DOCKERFILE_ACTIVATE=1
-COPY --chown=$MAMBA_USER:$MAMBA_USER requirements.txt /tmp/requirements.txt
-RUN python -m pip install --no-cache-dir -r /tmp/requirements.txt && python -m pip check
+COPY --chown=$MAMBA_USER:$MAMBA_USER requirements.lock.txt /tmp/requirements.lock.txt
+RUN python -m pip install --no-cache-dir -r /tmp/requirements.lock.txt && python -m pip check
 ARG MODEL_URL=https://celltypist.cog.sanger.ac.uk/models/Pan_Immune_CellTypist/v2/Immune_All_Low.pkl
 ARG MODEL_SHA256=290874d35dac039d4c9218c343fde4aac1077709b72a331ce7266f6828c36502
 RUN mkdir -p /opt/conda/models && python -c "import urllib.request,hashlib; p='/opt/conda/models/Immune_All_Low.pkl'; urllib.request.urlretrieve('${MODEL_URL}',p); assert hashlib.sha256(open(p,'rb').read()).hexdigest() == '${MODEL_SHA256}'"

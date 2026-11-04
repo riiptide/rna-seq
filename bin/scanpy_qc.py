@@ -14,6 +14,7 @@ from pipeline_utils import record, save_h5ad, save_json, seed_all
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--input', required=True)
+    p.add_argument('--sample-id', default='sample')
     p.add_argument('--output', default='filtered.h5ad')
     p.add_argument('--annotation-output', default='annotation_counts.h5ad')
     for name, default in [('min-genes', 200), ('max-genes', 5000), ('min-counts', 1000),
@@ -105,7 +106,7 @@ def main():
     save_h5ad(adata, a.output)
     save_json('qc_summary.json', summary)
     custom = {'id': 'cell_qc', 'section_name': 'Cell QC and doublets', 'plot_type': 'table',
-              'data': {'sample': summary}}
+              'data': {a.sample_id: {key: value for key, value in summary.items() if not isinstance(value, bool)}}}
     save_json('cell_qc_mqc.json', custom)
     print(summary)
 

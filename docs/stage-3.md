@@ -30,7 +30,9 @@ is downloaded and SHA-256 checked at build time. Annotation needs no internet.
 FastQC 0.12.1 and MultiQC 1.27 use digest-pinned BioContainers images directly.
 The kb-python 0.30.2 BioContainer required a thin repair Dockerfile: its bundled
 executables could not load `libstdc++.so.6` and `libz.so.1`. These are copied from
-the analysis image; the upstream counting executables are not replaced.
+the analysis image; the bundled bustools 0.45.1 is retained. The upstream Linux image bundled kallisto
+0.52.0, which changed pseudoalignment counts. We explicitly install the official,
+checksum-verified kallisto 0.51.1 Linux binary to match Stage 1.
 
 Use the full reads and frozen reference prepared in [Stage 1](stage-1.md).
 To recreate the fixture, put seqtk 1.4 and Python on PATH, then:

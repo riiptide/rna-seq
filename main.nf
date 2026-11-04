@@ -40,7 +40,7 @@ workflow {
         .map { id, lanes -> tuple([id: id], lanes.flatten()) }
     FASTQC(reads, params.fastqc_memory_mb)
     KB_COUNT(reads, reference, file("${projectDir}/docs/inputs.sha256"),
-             "-x '${params.chemistry}' --workflow '${params.workflow}' -m '${params.sort_memory}'",
+             "--kallisto '${params.container_kallisto}' -x '${params.chemistry}' --workflow '${params.workflow}' -m '${params.sort_memory}'",
              [file("${projectDir}/bin/reference.py"), file("${projectDir}/bin/inspect_counts.py")])
     TO_ANNDATA(KB_COUNT.out.h5ad, reference.map { _idx, t2g -> t2g },
                [file("${projectDir}/bin/to_anndata.py"), file("${projectDir}/bin/pipeline_utils.py")])
