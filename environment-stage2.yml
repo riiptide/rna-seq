@@ -1,0 +1,14 @@
+name: pbmc-stage2
+channels:
+  - conda-forge
+  - bioconda
+  - nodefaults
+dependencies:
+  - python=3.11.11
+  - pip=25.0.1
+  - fastqc=0.12.1
+  - seqtk=1.4
+  - openjdk=17.0.18
+  - pip:
+      # Scanpy, CellTypist, Jupyter, and all resolved Python dependencies.
+      - -r docs/requirements-stage2.lock.txt
