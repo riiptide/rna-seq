@@ -1,0 +1,15 @@
+work/
+data/
+references/
+results/
+.nextflow*
+*.h5ad
+*.fastq*
+*.fq*
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+
+# Existing local dashboard inspiration image
+/Screenshot*.png

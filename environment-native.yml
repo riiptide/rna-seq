@@ -1,0 +1,9 @@
+# Supplies HDF5 for the bundled standard-k Mac kallisto binary, plus explicit bustools.
+name: pbmc-native-count
+channels:
+  - conda-forge
+  - bioconda
+  - nodefaults
+dependencies:
+  - hdf5=1.14.3
+  - bustools=0.45.1
