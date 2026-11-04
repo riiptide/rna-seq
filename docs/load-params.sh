@@ -1,7 +1,7 @@
 # Source from the repository root in Bash or Zsh after activating the environment.
 # Nextflow parses its own configuration; Python only converts JSON to quoted shell values.
 mkdir -p work
-nextflow -C nextflow.config config -o json > work/params.json || return 1
+nextflow -C nextflow.config config -profile manual_mac -o json > work/params.json || return 1
 pbmc_exports="$(python - <<'PY'
 import json
 import shlex

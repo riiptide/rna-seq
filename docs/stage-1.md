@@ -84,7 +84,8 @@ export NUMBA_CACHE_DIR="$PWD/work/cache/numba"
 source docs/load-params.sh
 ```
 
-`load-params.sh` asks Nextflow to export `nextflow.config` as JSON, then uses
+`load-params.sh` selects the `manual_mac` profile for the Mac-only kallisto, bustools,
+and library paths. The container workflow does not use those paths. It asks Nextflow to export `nextflow.config` as JSON, then uses
 Python's `shlex.quote` to turn scalar values into shell variables safely. For
 example, `params.seed` becomes `$SEED`. Paths, chemistry, threads, and sampling
 settings are defined once. Rerun this command after changing configuration.
