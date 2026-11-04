@@ -6,12 +6,16 @@ cells → an interactive dashboard, with a laptop-sized memory budget.
 
 ## Current stage
 
-**Stage 1 complete:** full and subsampled FASTQs were processed manually with
-FastQC and kb count, and both raw-count AnnData files passed validation.
-See the [measured results and review guide](docs/stage-1-results.md).
+**Stage 2 complete:** the [interactive Scanpy/CellTypist notebook](notebooks/01_explore.ipynb)
+runs top to bottom and produces `results/annotated.h5ad` with 1,107 QC-passing cells
+and 13 Leiden clusters. Read the [cluster review and validation](docs/stage-2-results.md)
+and [Jupyter launch instructions](docs/stage-2.md).
+
+Stage 1 full/test counts and QC remain documented in the
+[Stage 1 run record](docs/stage-1-results.md).
 
 The repository is being built in reviewable stages. Stop here for review before
-the notebook. The automated workflow, containers, dashboard, pytest suite, and CI
+Nextflow modules and Docker. The automated workflow, containers, dashboard, pytest suite, and CI
 are future stages.
 
 The eventual entry point is:
@@ -62,6 +66,8 @@ nextflow.config         Central processing parameters
 samplesheet.csv         One row per sequencing lane, grouped by sample
 environment.yml         Pinned Stage 1 Python/QC environment
 environment-native.yml  Mac HDF5 dependency and bustools
+environment-stage2.yml  Pinned interactive analysis environment
+notebooks/              Executed Scanpy and CellTypist walkthrough
 modules/                Future Nextflow modules
 containers/             Future per-process Dockerfiles
 bin/                    Input/output validators; future analysis scripts
@@ -71,7 +77,7 @@ tests/                  Future pytest suite
 docs/                   Walkthrough, provenance, and run evidence
 data/                   Ignored raw reads and derived test fixture
 references/             Ignored prebuilt index and gene mapping
-results/                Ignored generated reports and count matrices
+results/                Ignored reports, matrices, annotated h5ad, and figures
 work/                   Ignored local environment, downloads, and logs
 ```
 
@@ -92,8 +98,8 @@ human GRCh38 / Ensembl 108, standard transcriptome index. See
   fixed number of cells. Test-fixture labels will not validate biological accuracy.
 - The standard reference quantifies mature transcripts and omits intronic signal.
 - The reference uses a documented subset of gene biotypes, not every genomic feature.
-- Some reference gene symbols are missing or shared by multiple IDs. Stage 2
-  must handle these explicitly before CellTypist; raw Ensembl IDs are preserved.
+- Some reference gene symbols are missing or shared by multiple IDs. The notebook
+  records and aggregates shared symbols explicitly; original Ensembl IDs are preserved.
 - Barcode filtering and cell QC are distinct decisions. Retain unfiltered counts
   so the notebook can examine the barcode-rank distribution before cell selection.
 - Under five minutes is a future measured target for a fresh test execution with
