@@ -6,8 +6,9 @@ cells → an interactive dashboard, with a laptop-sized memory budget.
 
 ## Current stage
 
-**Stage 1 in progress:** environment setup, input verification, and manual
-FastQC and kb count. Fresh results will be recorded after validation.
+**Stage 1 complete:** full and subsampled FASTQs were processed manually with
+FastQC and kb count, and both raw-count AnnData files passed validation.
+See the [measured results and review guide](docs/stage-1-results.md).
 
 The repository is being built in reviewable stages. Stop here for review before
 the notebook. The automated workflow, containers, dashboard, pytest suite, and CI
@@ -29,6 +30,20 @@ that configuration. FastQC and `kb count` are invoked directly from the shell.
 
 The target laptop has 24 GB RAM. Counts are sparse UMI counts, not normalized
 expression values. A barcode with reads is not necessarily a real cell.
+
+## Stage 1 data flow
+
+```mermaid
+flowchart LR
+    R[Paired FASTQs] --> Q[FastQC reports]
+    R --> K[kallisto: transcript compatibility]
+    I[Human index + gene mapping] --> K
+    K --> B[bustools: barcode correction and UMI counting]
+    B --> A[Raw sparse counts: h5ad + Matrix Market]
+```
+
+FastQC inspects reads without modifying them. The count matrix has barcode rows
+and gene columns; selecting real cells and assigning cell types comes in Stage 2.
 
 ## Roadmap
 
@@ -65,7 +80,7 @@ work/                   Ignored local environment, downloads, and logs
 [1k PBMCs from a Healthy Donor (v3 chemistry), 10x Genomics](https://www.10xgenomics.com/datasets/1-k-pbm-cs-from-a-healthy-donor-v-3-chemistry-3-standard-3-0-0),
 published November 19, 2018, licensed CC BY 4.0. The vendor reported 1,222 cells;
 that is contextual information, not an expected identical output for this workflow.
-The test reads will be a subsampled derivative, with the seed recorded.
+The test reads are a subsampled derivative, with the seed recorded.
 
 Reference: [Pachter lab prebuilt kallisto indices, release v1](https://github.com/pachterlab/kallisto-transcriptome-indices/releases/tag/v1),
 human GRCh38 / Ensembl 108, standard transcriptome index. See

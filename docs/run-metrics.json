@@ -1,0 +1,91 @@
+{
+  "date_local": "2026-11-04",
+  "timezone": "America/New_York",
+  "platform": "macOS arm64",
+  "physical_ram_bytes": 25769803776,
+  "timing_scope": "Fresh manual runs in Desktop/rna-seq. Full FastQC overlapped fixture creation. Counting outputs were empty at start. Downloads, setup, fixture creation, and later stages excluded. Not a controlled benchmark.",
+  "metrics": {
+    "test": {
+      "input_read_pairs": 1000000,
+      "pseudoaligned_read_pairs": 561276,
+      "pseudoalignment_percent": 56.1276,
+      "count_elapsed_seconds": 41.83,
+      "count_max_rss_bytes": 4315086848,
+      "fastqc_elapsed_seconds": 6.62,
+      "fastqc_max_rss_bytes": 1433092096,
+      "counts": {
+        "path": "results/test/kb/counts_unfiltered/adata.h5ad",
+        "barcodes_not_called_cells": 23175,
+        "reference_genes": 39546,
+        "genes_with_counts": 13453,
+        "nonzero_entries": 312084,
+        "total_umis": 503795,
+        "zero_count_barcodes": 955,
+        "matrix_format": "csr",
+        "matrix_dtype": "float64",
+        "gene_metadata_columns": [],
+        "example_gene_ids": [
+          "ENSG00000160072.20",
+          "ENSG00000228037.1",
+          "ENSG00000142611.17"
+        ],
+        "raw_counts_validated": true,
+        "matrix_market_and_h5ad_agree": true
+      },
+      "run_info": {
+        "n_targets": 227665,
+        "n_bootstraps": 0,
+        "n_processed": 1000000,
+        "n_pseudoaligned": 561276,
+        "n_unique": 144850,
+        "p_pseudoaligned": 56.1,
+        "p_unique": 14.5,
+        "kallisto_version": "0.51.1",
+        "index_version": 13,
+        "k-mer length": 31,
+        "start_time": "Wed Nov  4 15:16:40 2026"
+      }
+    },
+    "full": {
+      "input_read_pairs": 66601887,
+      "pseudoaligned_read_pairs": 37366584,
+      "pseudoalignment_percent": 56.10439235753185,
+      "count_elapsed_seconds": 396.77,
+      "count_max_rss_bytes": 4331028480,
+      "fastqc_elapsed_seconds": 174.24,
+      "fastqc_max_rss_bytes": 1392869376,
+      "counts": {
+        "path": "results/full/kb/counts_unfiltered/adata.h5ad",
+        "barcodes_not_called_cells": 237012,
+        "reference_genes": 39546,
+        "genes_with_counts": 22577,
+        "nonzero_entries": 3516125,
+        "total_umis": 10920109,
+        "zero_count_barcodes": 4548,
+        "matrix_format": "csr",
+        "matrix_dtype": "float64",
+        "gene_metadata_columns": [],
+        "example_gene_ids": [
+          "ENSG00000160072.20",
+          "ENSG00000228037.1",
+          "ENSG00000142611.17"
+        ],
+        "raw_counts_validated": true,
+        "matrix_market_and_h5ad_agree": true
+      },
+      "run_info": {
+        "n_targets": 227665,
+        "n_bootstraps": 0,
+        "n_processed": 66601887,
+        "n_pseudoaligned": 37366584,
+        "n_unique": 9636652,
+        "p_pseudoaligned": 56.1,
+        "p_unique": 14.5,
+        "kallisto_version": "0.51.1",
+        "index_version": 13,
+        "k-mer length": 31,
+        "start_time": "Wed Nov  4 15:17:42 2026"
+      }
+    }
+  }
+}

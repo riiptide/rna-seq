@@ -1,0 +1,19 @@
+{
+  "path": "results/full/kb/counts_unfiltered/adata.h5ad",
+  "barcodes_not_called_cells": 237012,
+  "reference_genes": 39546,
+  "genes_with_counts": 22577,
+  "nonzero_entries": 3516125,
+  "total_umis": 10920109,
+  "zero_count_barcodes": 4548,
+  "matrix_format": "csr",
+  "matrix_dtype": "float64",
+  "gene_metadata_columns": [],
+  "example_gene_ids": [
+    "ENSG00000160072.20",
+    "ENSG00000228037.1",
+    "ENSG00000142611.17"
+  ],
+  "raw_counts_validated": true,
+  "matrix_market_and_h5ad_agree": true
+}

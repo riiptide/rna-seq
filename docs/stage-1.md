@@ -259,6 +259,17 @@ reuse existing intermediate files; measuring that would not be a clean count run
 
 ## 9. Inspect and review
 
+An AnnData file packages a matrix with its identifiers and metadata. Here,
+`adata.X` contains raw UMI counts, `.obs` identifies barcode rows, and `.var`
+identifies gene columns. A sparse matrix stores nonzero entries rather than a
+large grid of zeros. The `.h5ad` extension names AnnData's HDF5 storage format;
+it does not imply that normalization, clustering, or annotation has happened.
+
+For example, repeated reads with the same cell barcode, gene assignment, and
+UMI usually provide evidence for one original molecule. Counting every read
+instead would inflate expression through PCR amplification. UMI-aware counting
+addresses this before we compare expression across cells in the next stage.
+
 Expected outputs inside each count directory:
 
 - `run_info.json`: reads processed and pseudoalignment statistics.

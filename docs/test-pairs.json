@@ -1,0 +1,14 @@
+[
+  {
+    "read1": "data/test/pbmc_1k_v3_L001_R1.fastq.gz",
+    "read2": "data/test/pbmc_1k_v3_L001_R2.fastq.gz",
+    "read_pairs": 500000,
+    "synchronized": true
+  },
+  {
+    "read1": "data/test/pbmc_1k_v3_L002_R1.fastq.gz",
+    "read2": "data/test/pbmc_1k_v3_L002_R2.fastq.gz",
+    "read_pairs": 500000,
+    "synchronized": true
+  }
+]

@@ -1,0 +1,89 @@
+dataset	file	module	status
+test	pbmc_1k_v3_L001_R1.fastq.gz	Basic Statistics	PASS
+test	pbmc_1k_v3_L001_R1.fastq.gz	Per base sequence quality	PASS
+test	pbmc_1k_v3_L001_R1.fastq.gz	Per tile sequence quality	PASS
+test	pbmc_1k_v3_L001_R1.fastq.gz	Per sequence quality scores	PASS
+test	pbmc_1k_v3_L001_R1.fastq.gz	Per base sequence content	WARN
+test	pbmc_1k_v3_L001_R1.fastq.gz	Per sequence GC content	PASS
+test	pbmc_1k_v3_L001_R1.fastq.gz	Per base N content	PASS
+test	pbmc_1k_v3_L001_R1.fastq.gz	Sequence Length Distribution	PASS
+test	pbmc_1k_v3_L001_R1.fastq.gz	Sequence Duplication Levels	PASS
+test	pbmc_1k_v3_L001_R1.fastq.gz	Overrepresented sequences	PASS
+test	pbmc_1k_v3_L001_R1.fastq.gz	Adapter Content	PASS
+test	pbmc_1k_v3_L001_R2.fastq.gz	Basic Statistics	PASS
+test	pbmc_1k_v3_L001_R2.fastq.gz	Per base sequence quality	PASS
+test	pbmc_1k_v3_L001_R2.fastq.gz	Per tile sequence quality	PASS
+test	pbmc_1k_v3_L001_R2.fastq.gz	Per sequence quality scores	PASS
+test	pbmc_1k_v3_L001_R2.fastq.gz	Per base sequence content	WARN
+test	pbmc_1k_v3_L001_R2.fastq.gz	Per sequence GC content	PASS
+test	pbmc_1k_v3_L001_R2.fastq.gz	Per base N content	PASS
+test	pbmc_1k_v3_L001_R2.fastq.gz	Sequence Length Distribution	PASS
+test	pbmc_1k_v3_L001_R2.fastq.gz	Sequence Duplication Levels	PASS
+test	pbmc_1k_v3_L001_R2.fastq.gz	Overrepresented sequences	PASS
+test	pbmc_1k_v3_L001_R2.fastq.gz	Adapter Content	PASS
+test	pbmc_1k_v3_L002_R1.fastq.gz	Basic Statistics	PASS
+test	pbmc_1k_v3_L002_R1.fastq.gz	Per base sequence quality	PASS
+test	pbmc_1k_v3_L002_R1.fastq.gz	Per tile sequence quality	PASS
+test	pbmc_1k_v3_L002_R1.fastq.gz	Per sequence quality scores	PASS
+test	pbmc_1k_v3_L002_R1.fastq.gz	Per base sequence content	WARN
+test	pbmc_1k_v3_L002_R1.fastq.gz	Per sequence GC content	PASS
+test	pbmc_1k_v3_L002_R1.fastq.gz	Per base N content	PASS
+test	pbmc_1k_v3_L002_R1.fastq.gz	Sequence Length Distribution	PASS
+test	pbmc_1k_v3_L002_R1.fastq.gz	Sequence Duplication Levels	PASS
+test	pbmc_1k_v3_L002_R1.fastq.gz	Overrepresented sequences	PASS
+test	pbmc_1k_v3_L002_R1.fastq.gz	Adapter Content	PASS
+test	pbmc_1k_v3_L002_R2.fastq.gz	Basic Statistics	PASS
+test	pbmc_1k_v3_L002_R2.fastq.gz	Per base sequence quality	PASS
+test	pbmc_1k_v3_L002_R2.fastq.gz	Per tile sequence quality	PASS
+test	pbmc_1k_v3_L002_R2.fastq.gz	Per sequence quality scores	PASS
+test	pbmc_1k_v3_L002_R2.fastq.gz	Per base sequence content	WARN
+test	pbmc_1k_v3_L002_R2.fastq.gz	Per sequence GC content	PASS
+test	pbmc_1k_v3_L002_R2.fastq.gz	Per base N content	PASS
+test	pbmc_1k_v3_L002_R2.fastq.gz	Sequence Length Distribution	PASS
+test	pbmc_1k_v3_L002_R2.fastq.gz	Sequence Duplication Levels	PASS
+test	pbmc_1k_v3_L002_R2.fastq.gz	Overrepresented sequences	PASS
+test	pbmc_1k_v3_L002_R2.fastq.gz	Adapter Content	PASS
+full	pbmc_1k_v3_S1_L001_R1_001.fastq.gz	Basic Statistics	PASS
+full	pbmc_1k_v3_S1_L001_R1_001.fastq.gz	Per base sequence quality	PASS
+full	pbmc_1k_v3_S1_L001_R1_001.fastq.gz	Per tile sequence quality	PASS
+full	pbmc_1k_v3_S1_L001_R1_001.fastq.gz	Per sequence quality scores	PASS
+full	pbmc_1k_v3_S1_L001_R1_001.fastq.gz	Per base sequence content	WARN
+full	pbmc_1k_v3_S1_L001_R1_001.fastq.gz	Per sequence GC content	PASS
+full	pbmc_1k_v3_S1_L001_R1_001.fastq.gz	Per base N content	PASS
+full	pbmc_1k_v3_S1_L001_R1_001.fastq.gz	Sequence Length Distribution	PASS
+full	pbmc_1k_v3_S1_L001_R1_001.fastq.gz	Sequence Duplication Levels	FAIL
+full	pbmc_1k_v3_S1_L001_R1_001.fastq.gz	Overrepresented sequences	PASS
+full	pbmc_1k_v3_S1_L001_R1_001.fastq.gz	Adapter Content	PASS
+full	pbmc_1k_v3_S1_L001_R2_001.fastq.gz	Basic Statistics	PASS
+full	pbmc_1k_v3_S1_L001_R2_001.fastq.gz	Per base sequence quality	PASS
+full	pbmc_1k_v3_S1_L001_R2_001.fastq.gz	Per tile sequence quality	PASS
+full	pbmc_1k_v3_S1_L001_R2_001.fastq.gz	Per sequence quality scores	PASS
+full	pbmc_1k_v3_S1_L001_R2_001.fastq.gz	Per base sequence content	WARN
+full	pbmc_1k_v3_S1_L001_R2_001.fastq.gz	Per sequence GC content	PASS
+full	pbmc_1k_v3_S1_L001_R2_001.fastq.gz	Per base N content	PASS
+full	pbmc_1k_v3_S1_L001_R2_001.fastq.gz	Sequence Length Distribution	PASS
+full	pbmc_1k_v3_S1_L001_R2_001.fastq.gz	Sequence Duplication Levels	FAIL
+full	pbmc_1k_v3_S1_L001_R2_001.fastq.gz	Overrepresented sequences	PASS
+full	pbmc_1k_v3_S1_L001_R2_001.fastq.gz	Adapter Content	PASS
+full	pbmc_1k_v3_S1_L002_R1_001.fastq.gz	Basic Statistics	PASS
+full	pbmc_1k_v3_S1_L002_R1_001.fastq.gz	Per base sequence quality	PASS
+full	pbmc_1k_v3_S1_L002_R1_001.fastq.gz	Per tile sequence quality	PASS
+full	pbmc_1k_v3_S1_L002_R1_001.fastq.gz	Per sequence quality scores	PASS
+full	pbmc_1k_v3_S1_L002_R1_001.fastq.gz	Per base sequence content	WARN
+full	pbmc_1k_v3_S1_L002_R1_001.fastq.gz	Per sequence GC content	PASS
+full	pbmc_1k_v3_S1_L002_R1_001.fastq.gz	Per base N content	PASS
+full	pbmc_1k_v3_S1_L002_R1_001.fastq.gz	Sequence Length Distribution	PASS
+full	pbmc_1k_v3_S1_L002_R1_001.fastq.gz	Sequence Duplication Levels	WARN
+full	pbmc_1k_v3_S1_L002_R1_001.fastq.gz	Overrepresented sequences	PASS
+full	pbmc_1k_v3_S1_L002_R1_001.fastq.gz	Adapter Content	PASS
+full	pbmc_1k_v3_S1_L002_R2_001.fastq.gz	Basic Statistics	PASS
+full	pbmc_1k_v3_S1_L002_R2_001.fastq.gz	Per base sequence quality	PASS
+full	pbmc_1k_v3_S1_L002_R2_001.fastq.gz	Per tile sequence quality	PASS
+full	pbmc_1k_v3_S1_L002_R2_001.fastq.gz	Per sequence quality scores	PASS
+full	pbmc_1k_v3_S1_L002_R2_001.fastq.gz	Per base sequence content	WARN
+full	pbmc_1k_v3_S1_L002_R2_001.fastq.gz	Per sequence GC content	PASS
+full	pbmc_1k_v3_S1_L002_R2_001.fastq.gz	Per base N content	PASS
+full	pbmc_1k_v3_S1_L002_R2_001.fastq.gz	Sequence Length Distribution	PASS
+full	pbmc_1k_v3_S1_L002_R2_001.fastq.gz	Sequence Duplication Levels	WARN
+full	pbmc_1k_v3_S1_L002_R2_001.fastq.gz	Overrepresented sequences	PASS
+full	pbmc_1k_v3_S1_L002_R2_001.fastq.gz	Adapter Content	PASS
