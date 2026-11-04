@@ -1,8 +1,8 @@
 # PBMC: reads to cell types
 
-> **Quick start · What:** Turn public 10x PBMC reads into gene counts and annotated cell types with FastQC, kb-python, Scanpy, and CellTypist.<br>
-> **Result:** **1,107 cells passing QC · 13 Leiden clusters** in the completed analysis.<br>
-> **Run:** Follow the [Stage 2 setup](docs/stage-2.md), then run `work/envs/stage2/bin/jupyter notebook notebooks/01_explore.ipynb` and select **Restart Kernel and Run All Cells**.
+> **Quick start** — Turn public 10x PBMC reads into gene counts and annotated cell types with FastQC, kb-python, Scanpy, and CellTypist.<br>
+> **1,107 cells passing QC · 13 Leiden clusters** in the completed analysis.<br>
+> Follow the [Stage 2 setup](docs/stage-2.md), then run `work/envs/stage2/bin/jupyter notebook notebooks/01_explore.ipynb` and select **Restart Kernel and Run All Cells**.
 
 ![Illustrative UMAP showing PBMC cell types](docs/images/pbmc-umap-illustration.png)
 *Illustrative cell-type overview; the image uses placeholder counts. See the [executed notebook](notebooks/01_explore.ipynb) for the measured UMAP and labels.*
