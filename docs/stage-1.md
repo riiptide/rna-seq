@@ -48,6 +48,8 @@ mamba create -y -p "$PWD/work/envs/native-count" --file docs/conda-native-osx-ar
 Do not create a second environment over an existing one. Activate the supplied
 local environment to inspect this run; use a fresh clone for a full reproduction.
 The lock files record exact packages; they do not promise cross-platform binaries.
+The inherited pip lock contained a build-machine file URL for `packaging`; this
+was replaced with `packaging==26.3` and verified by a fresh installation here.
 Linux containers will be introduced and verified in Stage 3.
 
 ### The Mac compatibility detail
@@ -57,13 +59,13 @@ with kb-python**, version 0.51.1. Its HDF5 dependency is supplied by the second
 local environment (HDF5 1.14.3). The count commands below explicitly supply its
 library search path. They also explicitly select bustools 0.45.1.
 
-The tested Bioconda kallisto 0.51.1 and 0.52.0 builds aborted when reading this
+During the earlier local setup, Bioconda kallisto 0.51.1 and 0.52.0 builds aborted when reading this
 prebuilt index. The current Bioconda recipe enables `MAX_KMER_SIZE=64`; build
 options can matter as well as version numbers. The bundled standard-k binary
 was verified with `kallisto inspect` and actual reads. We retain the downloaded
 prebuilt reference, rather than rebuilding it silently.
 
-Pandas 3.1.0 also caused AnnData's nullable-string export guard to reject the
+During that setup, pandas 3.1.0 also caused AnnData's nullable-string export guard to reject the
 barcode metadata. Pandas 2.2.3 is pinned to keep the verified export behavior.
 These were environment compatibility issues, not evidence of bad biological data.
 
