@@ -1,0 +1,3 @@
+/opt/conda/lib/python3.11/site-packages/celltypist/classifier.py:11: FutureWarning: `__version__` is deprecated, use `importlib.metadata.version('scanpy')` instead
+  from scanpy import __version__ as scv
+Offline model load OK: 6639 features; 290874d35dac039d4c9218c343fde4aac1077709b72a331ce7266f6828c36502

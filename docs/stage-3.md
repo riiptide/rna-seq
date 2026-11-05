@@ -24,8 +24,7 @@ bash containers/build.sh
 ```
 
 The analysis Dockerfile uses micromamba for Python 3.11.11 and installs pinned
-Scanpy/AnnData/CellTypist/Scrublet dependencies. Its Linux resolved dependency
-record is `containers/analysis/requirements.lock.txt`. The Immune_All_Low v2 model
+Scanpy/AnnData/CellTypist/Scrublet dependencies. Its complete Linux dependency lock, used by the build, is `containers/analysis/requirements.lock.txt`. The Immune_All_Low v2 model
 is downloaded and SHA-256 checked at build time. Annotation needs no internet.
 FastQC 0.12.1 and MultiQC 1.27 use digest-pinned BioContainers images directly.
 The kb-python 0.30.2 BioContainer required a thin repair Dockerfile: its bundled
@@ -144,6 +143,8 @@ repeat downloads even without `-resume`. Unlike the task cache, it reuses files
 by existence rather than rechecking the producing command; therefore the cache
 path names the reference release and KB_COUNT revalidates the bytes every time it
 runs. `storeDir` is deprecated in Nextflow 26.10; it is retained here as requested.
+The isolated reference check downloaded and verified the pair once, then reported
+`Stored process` on a second run without `-resume`; logs are in `stage-3-validation/`.
 
 The `manual_mac` profile holds the Stage 1 kallisto/bustools/library paths.
 `docs/load-params.sh` selects it for the manual walkthrough. Container runs never
@@ -177,3 +178,31 @@ Official references: [strict syntax migration](https://docs.seqera.io/nextflow/m
 [publishDir](https://docs.seqera.io/nextflow/reference/process/directives/publish-dir/),
 [storeDir caveats](https://docs.seqera.io/nextflow/reference/process/directives/store-dir/),
 and [Scanpy Scrublet](https://scanpy.readthedocs.io/en/stable/api/generated/scanpy.pp.scrublet.html).
+
+## Parameters you are most likely to change
+
+Pipeline flags retain the notebook's names, for example `--qc_min_genes 200`.
+The corresponding Python script uses `--min-genes 200`; `main.nf` translates
+between the two interfaces explicitly. Run any script with `--help` to inspect
+its standalone interface. The test profile overrides only the three QC cutoffs
+listed above; the seed and analysis choices stay the same.
+
+| Config parameter(s) | Full-run default | Why this setting |
+|---|---|---|
+| `qc_min_genes`, `qc_max_genes` | 200, 5,000 | Exclude low-information barcodes and the high-gene tail seen during exploration. |
+| `qc_min_counts`, `qc_max_counts` | 1,000, 30,000 | Keep the cell-rich side of the observed barcode-rank knee and exclude very high-count outliers. |
+| `qc_max_pct_mt` | 20 | The notebook's candidate cells had about 10% median mitochondrial UMIs; a blanket 5% cutoff was too strict here. |
+| `qc_gene_min_cells` | 3 | Remove extremely sparse genes from clustering while retaining the all-gene matrix for annotation. |
+| `normalization_target` | 10,000 | Put cells on a common library-size scale and meet CellTypist's input convention before log1p. |
+| `hvg_n_top_genes` | 2,000 | Focus PCA on informative genes; mitochondrial HVGs are excluded. |
+| `pca_components`, `neighbors_n_pcs` | 50, 20 | Inspect the PCA tail but build the graph from the first 20 PCs, as in the notebook. |
+| `neighbors_n_neighbors` | 15 | Preserve local structure without making each neighborhood too small. |
+| `leiden_resolution` | 0.6 | Retain the exploratory clustering setting rather than tuning to force a desired cluster count. |
+| `umap_min_dist` | 0.3 | Controls visual compactness; UMAP coordinates do not determine the Leiden clusters. |
+| `celltypist_overcluster_resolution` | 5.0 | Vote in smaller graph groups rather than assigning one label to each large Leiden cluster. |
+| `celltypist_min_prop` | 0.5 | Require at least half a voting group's cells to support its majority label. |
+| `seed` | 42 | Reproduce randomized algorithm choices and the established FASTQ fixture. |
+
+The 10,000 normalization target is enforced at annotation because the selected
+CellTypist model expects that scale. Changing reference/model releases requires
+reviewing their checksum pins, not merely changing a filename.

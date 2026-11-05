@@ -1,0 +1,4 @@
+["rna-seq-analysis:0.3.0"] sha256:c99bece4c5654b86483cee16295e9e786d8fc358645bb0776b5070a1989ca85a amd64
+["rna-seq-kb:0.30.2-k0.51.1-1"] sha256:81f96b2d8bb794aeed2928982c9a7ccd66c337d20e86e5f488863690b35f8a12 amd64
+["quay.io/biocontainers/fastqc:0.12.1--hdfd78af_0"] sha256:e194048df39c3145d9b4e0a14f4da20b59d59250465b6f2a9cb698445fd45900 amd64
+["quay.io/biocontainers/multiqc:1.27--pyhdfd78af_0"] sha256:a024b23be16fa3f3919ef018741478a7a3bfaaed0222369dff59abaf28316149 amd64

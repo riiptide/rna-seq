@@ -1,0 +1,9 @@
+N E X T F L O W  ~  version 26.10.5
+Launching `main.nf` [grave_maxwell] - revision: eab50df7ec
+[6f/7c346b] Cached process > KB_COUNT (pbmc_1k_v3)
+[ec/ab8e5b] Cached process > FASTQC (pbmc_1k_v3)
+[2b/8bd9ee] Cached process > TO_ANNDATA (pbmc_1k_v3)
+[3e/7246be] Cached process > SCANPY_QC (pbmc_1k_v3)
+[26/9782b0] Cached process > SCANPY_CLUSTER (pbmc_1k_v3)
+[aa/f25e9e] Cached process > CELLTYPIST (pbmc_1k_v3)
+[bd/67000f] Cached process > MULTIQC (all_samples)

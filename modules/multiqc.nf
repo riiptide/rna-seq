@@ -6,7 +6,7 @@ process MULTIQC {
     path reports, stageAs: 'reports??/*'
     output:
     path 'multiqc_report.html', emit: html
-    path 'multiqc_data', emit: data
+    path 'multiqc_report_data', emit: data
     script:
     """
     multiqc . --force --filename multiqc_report.html

@@ -1,0 +1,7 @@
+N E X T F L O W  ~  version 26.10.5
+Launching `work/check_reference.nf` [fabulous_kalman] - revision: 3dff752615
+WARN: There's no process matching config selector: FASTQC
+WARN: There's no process matching config selector: KB_COUNT
+WARN: There's no process matching config selector: TO_ANNDATA|SCANPY_QC|SCANPY_CLUSTER|CELLTYPIST
+WARN: There's no process matching config selector: MULTIQC
+[skipping] Stored process > KB_REF

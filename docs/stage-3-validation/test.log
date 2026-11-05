@@ -1,0 +1,9 @@
+N E X T F L O W  ~  version 26.10.5
+Launching `main.nf` [amazing_tesla] - revision: eab50df7ec
+[ec/ab8e5b] Submitted process > FASTQC (pbmc_1k_v3)
+[6f/7c346b] Submitted process > KB_COUNT (pbmc_1k_v3)
+[2b/8bd9ee] Submitted process > TO_ANNDATA (pbmc_1k_v3)
+[3e/7246be] Submitted process > SCANPY_QC (pbmc_1k_v3)
+[26/9782b0] Submitted process > SCANPY_CLUSTER (pbmc_1k_v3)
+[aa/f25e9e] Submitted process > CELLTYPIST (pbmc_1k_v3)
+[bd/67000f] Submitted process > MULTIQC (all_samples)

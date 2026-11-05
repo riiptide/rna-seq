@@ -1,0 +1,14 @@
+{
+  "label": "stage3-test-resume",
+  "command": [
+    "nextflow",
+    "run",
+    "main.nf",
+    "-profile",
+    "test,docker",
+    "-resume"
+  ],
+  "started_utc": "2026-11-05T15:04:27.042058+00:00",
+  "elapsed_seconds": 5.575953125,
+  "exit_code": 0
+}
