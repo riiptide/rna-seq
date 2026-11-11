@@ -1,7 +1,7 @@
 process TO_ANNDATA {
     tag "${meta.id}"
     label 'analysis'
-    publishDir { "${params.outdir}/counts/${meta.id}" }, mode: 'copy'
+    publishDir { "${params.outdir}/counts/${meta.id}" }, mode: 'copy', overwrite: true
     input:
     tuple val(meta), path(counts)
     path t2g

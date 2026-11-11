@@ -1,8 +1,8 @@
 process SCANPY_QC {
     tag "${meta.id}"
     label 'analysis'
-    publishDir { "${params.outdir}/figures/${meta.id}/qc" }, mode: 'copy', pattern: 'figures/*', saveAs: { name -> name.tokenize('/').last() }
-    publishDir { "${params.outdir}/analysis/${meta.id}/qc" }, mode: 'copy', pattern: '*.{json,csv,csv.gz}'
+    publishDir { "${params.outdir}/figures/${meta.id}/qc" }, mode: 'copy', overwrite: true, pattern: 'figures/*', saveAs: { name -> name.tokenize('/').last() }
+    publishDir { "${params.outdir}/analysis/${meta.id}/qc" }, mode: 'copy', overwrite: true, pattern: '*.{json,csv,csv.gz}'
     input:
     tuple val(meta), path(counts)
     val options

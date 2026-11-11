@@ -1,7 +1,7 @@
 process FASTQC {
     tag "${meta.id}"
     label 'light'
-    publishDir { "${params.outdir}/fastqc/${meta.id}" }, mode: 'copy'
+    publishDir { "${params.outdir}/fastqc/${meta.id}" }, mode: 'copy', overwrite: true
     input:
     tuple val(meta), path(reads)
     val memory_mb

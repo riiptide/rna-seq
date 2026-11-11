@@ -1,7 +1,7 @@
 process MULTIQC {
     tag 'all_samples'
     label 'light'
-    publishDir "${params.outdir}/multiqc", mode: 'copy'
+    publishDir "${params.outdir}/multiqc", mode: 'copy', overwrite: true
     input:
     path reports, stageAs: 'reports??/*'
     output:
