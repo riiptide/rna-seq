@@ -1,0 +1,16 @@
+{
+  "notebook_cells": 1107,
+  "pipeline_cells": 1107,
+  "shared_cells": 1107,
+  "notebook_only_cells": 0,
+  "pipeline_only_cells": 0,
+  "notebook_clusters": 13,
+  "pipeline_clusters": 13,
+  "adjusted_rand_index": 1.0,
+  "same_voted_label_fraction": 1.0,
+  "same_raw_label_fraction": 1.0,
+  "doublets_flagged": 9,
+  "doublets_removed": 0,
+  "raw_counts_identical": true,
+  "cluster_count_within_one": true
+}

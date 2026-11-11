@@ -1,0 +1,9 @@
+N E X T F L O W  ~  version 26.10.5
+Launching `main.nf` [maniac_hopper] - revision: eab50df7ec
+[3c/e6dcba] Submitted process > KB_COUNT (pbmc_1k_v3)
+[e3/362dbe] Submitted process > FASTQC (pbmc_1k_v3)
+[ef/83d2f5] Submitted process > TO_ANNDATA (pbmc_1k_v3)
+[b4/c27d53] Submitted process > SCANPY_QC (pbmc_1k_v3)
+[b4/5825f2] Submitted process > SCANPY_CLUSTER (pbmc_1k_v3)
+[98/1b3af3] Submitted process > CELLTYPIST (pbmc_1k_v3)
+[4b/205b2f] Submitted process > MULTIQC (all_samples)

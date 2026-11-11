@@ -1,0 +1,14 @@
+{
+  "label": "stage3-full-publish-final",
+  "command": [
+    "nextflow",
+    "run",
+    "main.nf",
+    "-profile",
+    "docker",
+    "-resume"
+  ],
+  "started_utc": "2026-11-05T15:24:37.596007+00:00",
+  "elapsed_seconds": 3.886424708,
+  "exit_code": 0
+}

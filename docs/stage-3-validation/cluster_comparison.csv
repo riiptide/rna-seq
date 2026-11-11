@@ -1,0 +1,14 @@
+pipeline_cluster,pipeline_cells,pipeline_dominant_label,pipeline_dominant_fraction,notebook_cluster,notebook_cells,notebook_interpretation,shared_cells_in_match,doublets_flagged
+0,115,Classical monocytes,1.0,0,115,"Classical CD14+ monocytes, S100A8/A9-high",115,0
+1,126,Naive B cells,1.0,1,126,Naive B cells,126,0
+2,76,Tem/Trm cytotoxic T cells,0.5394736842105263,2,76,Cytotoxic T cells; mixed effector/memory-like states,76,1
+3,174,Tcm/Naive helper T cells,0.6264367816091954,3,174,IL7R+ helper T cells; mixed naive/memory/effector-like states,174,0
+4,57,Memory B cells,0.9824561403508771,4,57,Memory B cells,57,0
+5,208,Classical monocytes,0.9807692307692307,5,208,"Classical CD14+ monocytes, CPVL/LGALS2-high",208,4
+6,38,Tcm/Naive cytotoxic T cells,1.0,6,38,Naive/central-memory-like CD8 T cells,38,0
+7,68,MAIT cells,0.9705882352941176,7,68,MAIT-like T cells,68,2
+8,57,CD16+ NK cells,1.0,8,57,NK-like cytotoxic cells; review T-cell-associated RNA,57,0
+9,32,Non-classical monocytes,1.0,9,32,Nonclassical FCGR3A+ monocytes,32,0
+10,8,pDC,1.0,10,8,"Plasmacytoid dendritic cells (pDC), small group",8,0
+11,130,Tcm/Naive helper T cells,0.9923076923076923,11,130,Naive/central-memory-like helper T cells,130,2
+12,18,DC2,1.0,12,18,"Conventional dendritic cells, DC2-like; subtype mixed",18,0

@@ -1,0 +1,9 @@
+N E X T F L O W  ~  version 26.10.5
+Launching `main.nf` [chaotic_pareto] - revision: eab50df7ec
+[ad/47a5b5] Submitted process > KB_COUNT (pbmc_1k_v3)
+[1c/bc9968] Submitted process > FASTQC (pbmc_1k_v3)
+[12/fa7fef] Submitted process > TO_ANNDATA (pbmc_1k_v3)
+[96/6a85a2] Submitted process > SCANPY_QC (pbmc_1k_v3)
+[3d/5e323d] Submitted process > SCANPY_CLUSTER (pbmc_1k_v3)
+[03/ddf7a3] Submitted process > CELLTYPIST (pbmc_1k_v3)
+[34/a986c2] Submitted process > MULTIQC (all_samples)

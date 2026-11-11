@@ -1,0 +1,13 @@
+{
+  "label": "stage3-full",
+  "command": [
+    "nextflow",
+    "run",
+    "main.nf",
+    "-profile",
+    "docker"
+  ],
+  "started_utc": "2026-11-05T15:05:03.533255+00:00",
+  "elapsed_seconds": 1060.405230666,
+  "exit_code": 0
+}

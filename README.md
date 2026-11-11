@@ -15,7 +15,8 @@ cells → an interactive dashboard, with a laptop-sized memory budget.
 
 **Stage 3:** the containerized Nextflow pipeline runs FASTQs through FastQC,
 kb count, Scanpy QC/clustering, CellTypist annotation and MultiQC.
-See the [setup and design walkthrough](docs/stage-3.md). The
+The full run matched all 1,107 notebook cells, all 13 clusters and every cell-type label.
+See the [run timings and cluster comparison](docs/stage-3-results.md) and the [setup walkthrough](docs/stage-3.md). The
 [Stage 2 notebook](notebooks/01_explore.ipynb) remains the exploratory record;
 the Python scripts in `bin/` are the analysis source of truth.
 

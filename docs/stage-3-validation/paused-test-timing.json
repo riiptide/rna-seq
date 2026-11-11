@@ -1,0 +1,13 @@
+{
+  "label": "stage3-test-final-published",
+  "command": [
+    "nextflow",
+    "run",
+    "main.nf",
+    "-profile",
+    "test,docker"
+  ],
+  "started_utc": "2026-11-05T15:24:41.620510+00:00",
+  "elapsed_seconds": 169.20844016700002,
+  "exit_code": 0
+}
