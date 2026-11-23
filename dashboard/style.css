@@ -1,0 +1,23 @@
+:root { --pbmc-ink: #132d40; --pbmc-teal: #0f766e; }
+.stApp { background: #f4f7fa; color: #172b3a; }
+.block-container { max-width: 1360px; padding-top: 2.1rem; padding-bottom: 3rem; }
+h1, h2, h3 { color: var(--pbmc-ink); letter-spacing: -0.025em; }
+h1 { font-size: 2.55rem !important; }
+[data-testid="stMetric"] { background: #fff; border: 1px solid #dbe5ec; border-radius: 14px; padding: 1rem 1.15rem; }
+[data-testid="stMetricValue"] { color: var(--pbmc-ink); font-weight: 650; }
+[data-testid="stMetricLabel"] { color: #475569; }
+[data-testid="stVerticalBlockBorderWrapper"] > div { border-color: #dbe5ec; border-radius: 14px; }
+[data-testid="stTabs"] [data-baseweb="tab-list"] { gap: 1.25rem; }
+[data-baseweb="tab"] { font-size: 1rem; }
+.pbmc-kicker { color: #0f766e; font-size: 0.95rem; font-weight: 650; margin-bottom: 0; }
+.pbmc-legend { display: grid; grid-template-columns: 14px minmax(0,1fr) auto; gap: .55rem .65rem; align-items: start; font-size: .9rem; line-height: 1.35; padding-top: .3rem; }
+.pbmc-swatch { width: 11px; height: 11px; border-radius: 50%; margin-top: 4px; }
+.pbmc-count { color: #64748b; text-align: right; font-variant-numeric: tabular-nums; }
+@media (max-width: 720px) {
+  .block-container { padding: 1.1rem .85rem 2rem; }
+  h1 { font-size: 2rem !important; }
+  [data-testid="stHorizontalBlock"] { flex-direction: column !important; gap: .7rem; }
+  [data-testid="stColumn"] { width: 100% !important; flex: 1 1 100% !important; min-width: 0 !important; }
+  [data-testid="stMetric"] { padding: .7rem 1rem; }
+  .pbmc-legend { font-size: .95rem; }
+}
