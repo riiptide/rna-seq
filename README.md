@@ -13,7 +13,11 @@ cells → an interactive dashboard, with a laptop-sized memory budget.
 
 ## Current stage
 
-**Stage 3:** the containerized Nextflow pipeline runs FASTQs through FastQC,
+**Stage 4:** the Streamlit/Plotly dashboard explores the saved analysis with
+UMAP coloring, gene search, QC histograms, and downloadable cluster markers.
+See the [dashboard setup and walkthrough](docs/stage-4.md).
+
+The containerized Nextflow pipeline runs FASTQs through FastQC,
 kb count, Scanpy QC/clustering, CellTypist annotation and MultiQC.
 The full run matched all 1,107 notebook cells, all 13 clusters and every cell-type label.
 See the [run timings and cluster comparison](docs/stage-3-results.md) and the [setup walkthrough](docs/stage-3.md). The
@@ -44,7 +48,21 @@ runs in a separate container. Outputs are published into `counts/`, `analysis/`,
 Scrublet flags potential doublets by default; removal is a separate opt-in.
 The existing Ensembl 108 reference is checksum-verified, and a missing reference
 is downloaded into a persistent cache. The Slurm/Apptainer profile is a scaffold
-and has not been tested. Dashboard, pytest and CI remain future stages.
+and has not been tested. pytest and CI remain Stage 5 work.
+
+## Open the dashboard
+
+After the one-time [dashboard environment setup](docs/stage-4.md#setup), run from
+the repository root:
+
+```bash
+work/envs/dashboard/bin/streamlit run dashboard/app.py
+```
+
+Open `http://localhost:8501`. The dashboard reads the full run’s annotated matrix
+and marker table; it does not rerun the analysis. Summary cards and plots stack
+on narrow screens. Gene colors use the saved log-normalized expression, and QC
+lines use the thresholds recorded in the `.h5ad`.
 
 ## Stage 1
 
@@ -91,7 +109,8 @@ notebooks/              Executed Scanpy and CellTypist walkthrough
 modules/                One process per pipeline step
 containers/             Pinned image builds and dependency locks
 bin/                    Parameterized analysis and validation scripts
-dashboard/              Future Streamlit application
+dashboard/              Streamlit UI, Plotly figures, data loading, pinned dependencies
+.streamlit/             Theme and local server configuration
 addons/                 Reserved for the later add-on
 tests/                  Seeded fixture builder and test samplesheet
 docs/                   Walkthrough, provenance, and run evidence
